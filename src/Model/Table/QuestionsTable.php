@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  * Questions Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Quizzes
- * @property \Cake\ORM\Association\BelongsTo $Classes
+ * @property \Cake\ORM\Association\BelongsTo $Areas
  */
 class QuestionsTable extends Table
 {
@@ -33,8 +33,8 @@ class QuestionsTable extends Table
         $this->belongsTo('Quizzes', [
             'foreignKey' => 'quiz_id'
         ]);
-        $this->belongsTo('Classes', [
-            'foreignKey' => 'class_id',
+        $this->belongsTo('Areas', [
+            'foreignKey' => 'area_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -70,7 +70,7 @@ class QuestionsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['quiz_id'], 'Quizzes'));
-        $rules->add($rules->existsIn(['class_id'], 'Classes'));
+        $rules->add($rules->existsIn(['area_id'], 'Areas'));
         return $rules;
     }
 }

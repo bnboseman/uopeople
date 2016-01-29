@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Network\Response;
+use Cake\Collection\Collection;
 
 /**
  * Questions Controller
@@ -18,11 +20,14 @@ class QuestionsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Quizzes']
-        ];
-        $this->set('questions', $this->paginate($this->Questions));
-        $this->set('_serialize', ['questions']);
+        $this->viewBuilder()->layout('ajax');
+    	
+        $items = $this->Questions->Areas->find('list');
+        return new Response([
+        		'type' => 'application/json',
+        		'body' => json_encode($this->Questions->find('all')),
+        		'charset' => 'UTF-8'
+        ]);
     }
 
     /**
@@ -35,7 +40,7 @@ class QuestionsController extends AppController
     public function view($id = null)
     {
         $question = $this->Questions->get($id, [
-            'contain' => ['Quizzes']
+            'contain' => ['Quizzes', 'Areas']
         ]);
         $this->set('question', $question);
         $this->set('_serialize', ['question']);
@@ -59,7 +64,8 @@ class QuestionsController extends AppController
             }
         }
         $quizzes = $this->Questions->Quizzes->find('list', ['limit' => 200]);
-        $this->set(compact('question', 'quizzes'));
+        $areas = $this->Questions->Areas->find('list', ['limit' => 200]);
+        $this->set(compact('question', 'quizzes', 'areas'));
         $this->set('_serialize', ['question']);
     }
 
@@ -85,7 +91,8 @@ class QuestionsController extends AppController
             }
         }
         $quizzes = $this->Questions->Quizzes->find('list', ['limit' => 200]);
-        $this->set(compact('question', 'quizzes'));
+        $areas = $this->Questions->Areas->find('list', ['limit' => 200]);
+        $this->set(compact('question', 'quizzes', 'areas'));
         $this->set('_serialize', ['question']);
     }
 

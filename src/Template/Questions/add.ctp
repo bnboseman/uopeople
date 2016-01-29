@@ -2,6 +2,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Questions'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Areas'), ['controller' => 'Areas', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Area'), ['controller' => 'Areas', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="questions form large-9 medium-8 columns content">
@@ -10,7 +12,7 @@
         <legend><?= __('Add Question') ?></legend>
         <?php
             echo $this->Form->input('quiz_id');
-            echo $this->Form->input('class_id');
+            echo $this->Form->input('area_id', ['options' => $areas]);
             echo $this->Form->input('question');
             echo $this->Form->input('answer');
         ?>

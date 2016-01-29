@@ -4,17 +4,13 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Question Entity.
+ * Area Entity.
  *
  * @property int $id
- * @property int $quiz_id
- * @property \App\Model\Entity\Quiz $quiz
- * @property int $area_id
- * @property \App\Model\Entity\Area $area
- * @property string $question
- * @property string $answer
+ * @property string $name
+ * @property \App\Model\Entity\Question[] $questions
  */
-class Question extends Entity
+class Area extends Entity
 {
 
     /**
