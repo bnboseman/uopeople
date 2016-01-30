@@ -1,12 +1,13 @@
 <div ng-controller="questionsController" ng-cloak>
-	<select ng-model="selected_class" class="form-control">
+	<div class="col-xs-6"><select ng-model="selected_class" class="form-control">
 	<option ng-repeat="class in classes" value="{{class.id}}">{{class.name}}</option>
 	</select>
+	</div>
  
-    <input ng-model="search" class="form-control">
- 
-    <div dir-paginate="question in questions | filter: search |  itemsPerPage: 10">
-    <p><strong>{{question.question}}</strong><br /> {{ question.answer}} </p>
+    <div class="col-xs-6"><input ng-model="search" class="form-control"></div>
+    <div class="clearfix"></div>
+    <div dir-paginate="question in questions | filter:filterBySelection|  itemsPerPage: 5">
+    <p><strong>{{question.question}}</strong><br /> {{ question.answer }} </p>
     
    
     </div>
