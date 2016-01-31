@@ -1,6 +1,6 @@
 var app = angular.module('uopeople', ['angularUtils.directives.dirPagination']);
 
-app.controller('questionsController', function($http, $scope, $filter) {
+app.controller('questionsController', function($http, $scope, $filter, $sce) {
 	$scope.questions = [];
 	$scope.classes = [];
 	$scope.search = '';
@@ -24,6 +24,11 @@ app.controller('questionsController', function($http, $scope, $filter) {
 		}  else {
 			return question.area_id == $scope.selected_class
 		}
+    };
+    
+    $scope.renderHtml = function(html_code)
+    {
+        return $sce.trustAsHtml(html_code);
     };
 });
 

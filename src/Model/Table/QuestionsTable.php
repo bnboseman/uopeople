@@ -30,9 +30,6 @@ class QuestionsTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
-        $this->belongsTo('Quizzes', [
-            'foreignKey' => 'quiz_id'
-        ]);
         $this->belongsTo('Areas', [
             'foreignKey' => 'area_id',
             'joinType' => 'INNER'

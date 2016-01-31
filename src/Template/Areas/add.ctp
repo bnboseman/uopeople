@@ -1,19 +1,12 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Areas'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="areas form large-9 medium-8 columns content">
+<div  class="form-group">
     <?= $this->Form->create($area) ?>
     <fieldset>
-        <legend><?= __('Add Area') ?></legend>
-        <?php
-            echo $this->Form->input('name');
-        ?>
+        <legend><?= __('Add Class') ?></legend>
+        <?= $this->Form->input('id', ['class'=>'form-control', 'type'=>'text', 'label' => 'Class Number']); ?>
+        <?= $this->Form->input('name', ['class'=>'form-control']); ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+</div>
+<div>
+    <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
 </div>

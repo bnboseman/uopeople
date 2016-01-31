@@ -40,7 +40,7 @@ class QuestionsController extends AppController
     public function view($id = null)
     {
         $question = $this->Questions->get($id, [
-            'contain' => ['Quizzes', 'Areas']
+            'contain' => ['Areas']
         ]);
         $this->set('question', $question);
         $this->set('_serialize', ['question']);
@@ -63,7 +63,6 @@ class QuestionsController extends AppController
                 $this->Flash->error(__('The question could not be saved. Please, try again.'));
             }
         }
-        $quizzes = $this->Questions->Quizzes->find('list', ['limit' => 200]);
         $areas = $this->Questions->Areas->find('list', ['limit' => 200]);
         $this->set(compact('question', 'quizzes', 'areas'));
         $this->set('_serialize', ['question']);
@@ -90,7 +89,6 @@ class QuestionsController extends AppController
                 $this->Flash->error(__('The question could not be saved. Please, try again.'));
             }
         }
-        $quizzes = $this->Questions->Quizzes->find('list', ['limit' => 200]);
         $areas = $this->Questions->Areas->find('list', ['limit' => 200]);
         $this->set(compact('question', 'quizzes', 'areas'));
         $this->set('_serialize', ['question']);
