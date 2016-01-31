@@ -64,7 +64,7 @@ class QuestionsController extends AppController
             }
         }
         $areas = $this->Questions->Areas->find('list', ['limit' => 200]);
-        $this->set(compact('question', 'quizzes', 'areas'));
+        $this->set(compact('question', 'areas'));
         $this->set('_serialize', ['question']);
     }
 

@@ -32,3 +32,12 @@ app.controller('questionsController', function($http, $scope, $filter, $sce) {
     };
 });
 
+tinymce.init({
+    selector: 'textarea',
+    menubar: false,
+    plugins: [
+              'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+              'searchreplace wordcount visualblocks visualchars code media nonbreaking',
+              'table contextmenu directionality emoticons template paste textcolor'
+            ],
+  });

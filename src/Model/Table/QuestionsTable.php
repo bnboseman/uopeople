@@ -10,7 +10,6 @@ use Cake\Validation\Validator;
 /**
  * Questions Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Quizzes
  * @property \Cake\ORM\Association\BelongsTo $Areas
  */
 class QuestionsTable extends Table
@@ -66,7 +65,6 @@ class QuestionsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['quiz_id'], 'Quizzes'));
         $rules->add($rules->existsIn(['area_id'], 'Areas'));
         return $rules;
     }

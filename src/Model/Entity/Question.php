@@ -8,7 +8,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $quiz_id
- * @property \App\Model\Entity\Quiz $quiz
  * @property int $area_id
  * @property \App\Model\Entity\Area $area
  * @property string $question
