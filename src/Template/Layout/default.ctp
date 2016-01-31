@@ -87,6 +87,7 @@ $description = 'University of the People';
 <?= $this->Html->script('angular2.min.js') ?>
 <?= $this->Html->script('ui-bootstrap-tpls-1.1.1.min.js') ?>
 <?= $this->Html->script('dirPagination.js') ?>
+<?= $this->Html->script('tinymce/tinymce.min.js') ?>
 <?= $this->Html->script('script.js') ?>
 </body>
 </html>

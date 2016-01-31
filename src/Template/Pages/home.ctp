@@ -6,7 +6,7 @@
  
     <div class="col-xs-6"><input ng-model="search" class="form-control"></div>
     <div class="clearfix"></div>
-    <div dir-paginate="question in questions | filter:filterBySelection|  itemsPerPage: 5">
+    <div dir-paginate="question in questions | filter:filterBySelection |  itemsPerPage: 5">
     <p><strong ng-bind-html="renderHtml(question.question)"></strong><br /> {{ question.answer }} </p>
     
    

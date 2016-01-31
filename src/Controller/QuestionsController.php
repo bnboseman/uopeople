@@ -25,7 +25,7 @@ class QuestionsController extends AppController
         $items = $this->Questions->Areas->find('list');
         return new Response([
         		'type' => 'application/json',
-        		'body' => json_encode($this->Questions->find('all')),
+        		'body' => json_encode($this->Questions->find('all')->toArray()),
         		'charset' => 'UTF-8'
         ]);
     }
