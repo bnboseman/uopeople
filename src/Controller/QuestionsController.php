@@ -42,8 +42,11 @@ class QuestionsController extends AppController
         $question = $this->Questions->get($id, [
             'contain' => ['Areas']
         ]);
-        $this->set('question', $question);
-        $this->set('_serialize', ['question']);
+        return new Response([
+        		'type' => 'application/json',
+        		'body' =>json_encode($question->toArray()),
+        		'charset' => 'UTF-8'
+        ]);
     }
 
     /**
@@ -64,7 +67,7 @@ class QuestionsController extends AppController
             }
         }
         $areas = $this->Questions->Areas->find('list', ['limit' => 200]);
-        $this->set(compact('question', 'areas'));
+        $this->set(compact('question',	 'areas'));
         $this->set('_serialize', ['question']);
     }
 
@@ -83,7 +86,8 @@ class QuestionsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $question = $this->Questions->patchEntity($question, $this->request->data);
             if ($this->Questions->save($question)) {
-                $this->Flash->success(__('The question has been saved.'));
+                
+            	$this->Flash->success(__('The question has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The question could not be saved. Please, try again.'));

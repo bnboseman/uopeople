@@ -48,6 +48,12 @@ Router::scope('/', function ($routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    
+    Router::connect(
+    	'/questions/:id',
+    	['controller' => 'Questions', 'action' => 'view'],
+    	['id' => '\d+', 'pass' => ['id']]
+    );
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

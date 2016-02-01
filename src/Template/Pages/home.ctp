@@ -6,9 +6,9 @@
  
     <div class="col-xs-6"><input ng-model="search" class="form-control"></div>
     <div class="clearfix"></div>
-    <div dir-paginate="question in questions | filter:filterBySelection |  itemsPerPage: 5">
-    <p><strong ng-bind-html="renderHtml(question.question)"></strong><br /> {{ question.answer }} </p>
-    
+    <div class="col-md-12" dir-paginate="question in questions | filter:filterBySelection |  itemsPerPage: 5">
+    <div><strong ng-bind-html="renderHtml(question.question)"></strong> </div>
+    <div class="bg-success col-md-12"><p> {{ question.answer }}</p></div>
    
     </div>
     <dir-pagination-controls></dir-pagination-controls>
